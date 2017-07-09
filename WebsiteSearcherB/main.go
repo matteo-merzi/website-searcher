@@ -22,22 +22,22 @@ const (
 func main() {
 	start := time.Now()
 	// parse command line arguments
-	inFile := flag.String("inFile", "../urls.txt", "csv input file path")
-	outFile := flag.String("outFile", "../results.txt", "the output file path")
-	regEx := flag.String("regex", "Treasure", "the regular expression")
+	inPath := flag.String("inFile", "../urls.txt", "csv input file path")
+	outPath := flag.String("outFile", "../results.txt", "the output file path")
+	searchTerm := flag.String("searchTerm", "Treasure", "the search term")
 	flag.Parse()
 
 	// open input file
-	in, err := os.Open(*inFile)
+	in, err := os.Open(*inPath)
 	check(err)
 	defer in.Close()
 
 	// open output file
-	out, err := os.Create(*outFile)
+	out, err := os.Create(*outPath)
 	check(err)
 	defer out.Close()
 
-	re, err := regexp.Compile(*regEx)
+	re, err := regexp.Compile(*searchTerm)
 	check(err)
 
 	// parsing input file as a csv
