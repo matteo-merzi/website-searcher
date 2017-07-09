@@ -34,7 +34,7 @@ In this particular case, I created a fixed number of workers to fetch the urls a
 * writeResults receives the search results through an inbound channel that parallelSearch created and writes the output into a file.
 
 ### Solution B
-Solutuon B uses a buffered channel as a semaphore to limit the number of go routines running at the same time. This solution lacks modularity and it is specifically tailored for this excercise. The reason why I am including this solution is because it runs faster then solution A even if it would be a problem to upgrade it.
+Solutuon B uses a buffered channel as a semaphore to limit the number of go routines running at the same time. This solution lacks modularity and it is specifically tailored for this excercise. The reason why I am including this solution is because it runs marginally faster then solution A (could depends on internet connection).
 
 ##### Architecture
 * buffered channel works as a semaphore. Only a limited number of slots are available.
